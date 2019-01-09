@@ -11,6 +11,6 @@ Icon=zero-lliurex-smart
 Groups=admin;admins;teachers;adm
 Category=Support
 ScriptPath=zero-lliurex-smart.zmd
-Using=pe
+Using=pkexec
 Service=True
 Modal=True
