@@ -1,0 +1,7 @@
+{
+	"type":"apt",
+	"pkg_list": [{"name":"lliurex-smart64","key_store":"zero-lliurex-smart"}], 
+	"script": {"name":"/usr/share/zero-lliurex-smart/lliurex-smart_script", "remove":true},
+	"force32":true,
+	"zomando":"zero-lliurex-smart"
+}

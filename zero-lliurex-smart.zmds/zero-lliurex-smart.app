@@ -1,0 +1,16 @@
+Name=zero-lliurex-smart
+Name[es]=Instalación de drivers de Smart
+Name[en]=Installing the Smart drivers
+Name[qcv]=Instal·lació dels drivers de Smart
+Name[ca_ES]=Instal·lació del drivers de Smart
+Comment=Smart Board drivers installation wizard
+Comment[es]=Asistente de instalación de los drivers de la pizarra Smart
+Comment[qcv]=Auxiliar d'instal·lació dels drivers de la pisarra Smart
+Comment[ca_ES]=Auxiliar d'instal·lació dels drivers de la pisarra Smart
+Icon=zero-lliurex-smart
+Groups=admin;admins;teachers;adm
+Category=Support
+ScriptPath=zero-lliurex-smart.zmd
+Using=pe
+Service=True
+Modal=True
