@@ -2,13 +2,13 @@ Source: zero-lliurex-smart
 Section: x11
 Priority: optional
 Maintainer: Equipo LliureX <lliurex@gva.es>
-Build-Depends: cdbs, debhelper (>= 7), llxcfg-dev, zero-dev, llxsrchelper,inkscape (>= 0.47)
-Standards-Version: 3.8.4
+Build-Depends: cdbs, debhelper (>= 10),zero-dev, llxsrchelper,inkscape (>= 0.47)
+Standards-Version: 4.1.2
 
 Package: zero-lliurex-smart
 Architecture: any
 Section: x11
-Depends: zero-center, llxcfg-runtime, epi-gtk
+Depends: zero-center,epi-gtk
 Description: Smart drivers installer
   Zero-center helper, It downloads and installs lliurex-smart package
  
