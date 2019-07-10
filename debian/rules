@@ -11,21 +11,3 @@
 
 %:
 	dh $@  --with llxsrc,zero
-
-
-override_dh_install: custom-files
-
-	dh_install
-
-# Build architecture-dependent files here.
-custom-files:
-
-ifeq ($(DEB_BUILD_ARCH), i386)
-	cp epi.i386/* ${CURDIR}/debian/zero-lliurex-smart/usr/share/zero-lliurex-smart
-
-endif
-
-ifeq ($(DEB_BUILD_ARCH), amd64)
-	cp epi.amd64/* ${CURDIR}/debian/zero-lliurex-smart/usr/share/zero-lliurex-smart
-
-endif
