@@ -1,0 +1,22 @@
+#!/bin/bash
+
+
+
+ACTION="$1"
+
+case $ACTION in
+
+	postInstall)
+
+		docker pull lliurex/lliurex-smart
+
+		check_dowload=$(docker images lliurex/lliurex-smart -q)
+
+		if [ $check_dowload==" " ]
+		then
+			exit 1
+		fi
+
+esac
+exit 0
+
