@@ -8,7 +8,7 @@ Standards-Version: 4.1.2
 Package: zero-lliurex-smart
 Architecture: any
 Section: x11
-Depends: zero-center,epi-gtk
+Depends: zero-center,epi-gtk,zero-lliurex-docker
 Description: Smart drivers installer
   Zero-center helper, It downloads and installs lliurex-smart package
  
