@@ -10,10 +10,10 @@ case $ACTION in
 
 		docker pull lliurex/lliurex-smart
 
-		check_dowload=$(docker images lliurex/lliurex-smart -q)
+		check_download=$(docker images lliurex/lliurex-smart -q)
+		
 
-		if [ $check_dowload==" " ]
-		then
+		if [ "$check_download" == " " ]; then
 			exit 1
 		fi
 
