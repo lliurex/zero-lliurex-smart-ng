@@ -3,20 +3,40 @@
 
 
 ACTION="$1"
+LLV="$(which lliurex-version)"
+DOCKER="$(which docker)"
+
+if [ -z "$DOCKER" ]; then
+	echo "ERROR: docker binary not available!!!"
+fi
 
 case $ACTION in
 
 	postInstall)
-
-		docker pull lliurex/lliurex-smart
-
-		check_download=$(docker images lliurex/lliurex-smart -q)
-		
-
-		if [ "$check_download" == " " ]; then
-			exit 1
+		skip_download=0
+		if [ -n "$LLV" -a -x "$LLV" ]; then
+			eval export $(lliurex-version -e -a)
+			if [ -n "$UNKNOWN" -a "x$UNKNOWN" = "yes" ]; then
+				if [ "x$LTSP" = "yes" -a "x$USERNAME" = "root" ]; then
+					skip_download=1
+				fi
+			fi
+		else
+			echo "Warning: lliurex-version not found!!! Skip detection will not be available!!!"
 		fi
+		if [ "x$skip_download" != "x1" ]; then
+			echo "Downloading docker image, please wait a moment..."
+			
+			docker pull lliurex/lliurex-smart
 
+			check_download=$(docker images lliurex/lliurex-smart -q)
+
+			if [ "$check_download" == " " ]; then
+				exit 1
+			fi
+		else
+			echo "Chroot environment detected, skipping download image, manual download will be needed after this install"
+		fi
 esac
 exit 0
 
