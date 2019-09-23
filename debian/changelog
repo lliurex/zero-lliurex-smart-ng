@@ -1,3 +1,9 @@
+zero-lliurex-smart (0.14) bionic; urgency=medium
+
+  * Conditional download, skip if chrooted environment is detected
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Mon, 23 Sep 2019 14:26:08 +0200
+
 zero-lliurex-smart (0.13) bionic; urgency=medium
 
   * Changed to use docker version
