@@ -1,3 +1,9 @@
+zero-lliurex-smart (0.14.1) bionic; urgency=medium
+
+  * Avoid Epigtk bug
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Tue, 01 Oct 2019 14:10:06 +0200
+
 zero-lliurex-smart (0.14) bionic; urgency=medium
 
   * Conditional download, skip if chrooted environment is detected

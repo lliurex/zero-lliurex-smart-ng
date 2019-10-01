@@ -6,9 +6,10 @@ ACTION="$1"
 LLV="$(which lliurex-version)"
 DOCKER="$(which docker)"
 
-if [ -z "$DOCKER" ]; then
-	echo "ERROR: docker binary not available!!!"
-fi
+# Epic-gtk bug !!! Doesn't support echoes out of predefined sections
+#if [ -z "$DOCKER" ]; then
+#	echo "ERROR: docker binary not available!!!"
+#fi
 
 case $ACTION in
 
