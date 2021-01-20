@@ -1,8 +1,8 @@
 #!/bin/bash
-
-
-
 ACTION="$1"
+shift
+PACKAGE_LIST="$@"
+
 LLV="$(which lliurex-version)"
 DOCKER="$(which docker)"
 
@@ -12,7 +12,6 @@ DOCKER="$(which docker)"
 #fi
 
 case $ACTION in
-
 	postInstall)
 		skip_download=0
 		if [ -n "$LLV" -a -x "$LLV" ]; then
@@ -26,18 +25,20 @@ case $ACTION in
 			echo "Warning: lliurex-version not found!!! Skip detection will not be available!!!"
 		fi
 		if [ "x$skip_download" != "x1" ]; then
-			echo "Downloading docker image, please wait a moment..."
-			
+			echo "Downloading docker image, please wait a moment..."			
 			docker pull lliurex/lliurex-smart
-
 			check_download=$(docker images lliurex/lliurex-smart -q)
-
 			if [ "$check_download" == " " ]; then
 				exit 1
 			fi
 		else
 			echo "Chroot environment detected, skipping download image, manual download will be needed after this install"
 		fi
+	;;
+	remove)
+		lliurex-smart -purge || true
+		apt-get -y remove ${PACKAGE_LIST}
+	;;
 esac
 exit 0
 

@@ -1,3 +1,9 @@
+zero-lliurex-smart (0.14.3) bionic; urgency=medium
+
+  * Allow remove package
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Wed, 20 Jan 2021 13:38:07 +0100
+
 zero-lliurex-smart (0.14.2) bionic; urgency=medium
 
   * Add xf86-input-nextwindow as dependency
