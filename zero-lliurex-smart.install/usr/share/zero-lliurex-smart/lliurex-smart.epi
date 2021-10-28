@@ -1,7 +1,7 @@
 {
 	"type":"apt",
 	"pkg_list": [{"name":"lliurex-smart","key_store":"zero-lliurex-smart"},{"name":"nwfermi-module","key-store":"zero-lliurex-smart"}], 
-	"script": {"name":"/usr/share/zero-lliurex-smart/lliurex-smart_script","download":true},
+	"script": {"name":"/usr/share/zero-lliurex-smart/lliurex-smart_script","download":true, "remove": true, "postInstall":true},
 	"depends": "/usr/share/zero-lliurex-docker/docker.epi",
 	"zomando":"zero-lliurex-smart"
 }
