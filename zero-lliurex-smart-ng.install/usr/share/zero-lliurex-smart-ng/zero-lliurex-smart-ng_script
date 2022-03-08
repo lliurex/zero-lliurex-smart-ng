@@ -20,11 +20,23 @@ case $ACTION in
 	;;
 	preInstall)
 		echo "preInstall..."
-		kdialog --error "Preinstall"
-		#status=$(egrep -A1 '"zero-lliurex-smart"' /var/lib/n4d/variables-dir/ZEROCENTER|grep state|sed -nr 's/.*"state": ([^,]+),/\1/p')
-		#status=$(dpkg-query -W -f '${Status}' lliurex-smart 2>/dev/null)
-
-		exit 1
+		statusA=$(egrep -A1 '"zero-lliurex-smart"' /var/lib/n4d/variables-dir/ZEROCENTER|grep state|sed -nr 's/.*"state": ([^,]+),/\1/p')
+		statusB=$(dpkg-query -W -f '${Status}' lliurex-smart 2>/dev/null)
+		statusC=$(dpkg-query -W -f '${Status}' nwfermi-module 2>/dev/null)
+		ret=0
+		if [ "${statusA}" == "1" ]; then
+			kdialog --error "Unable to install, this installer is incompatible with unofficial smart installer!\nPlease remove all packages from unofficial installer first"
+			ret=1
+		fi
+		if ["${statusB}" == 'install ok installed' ]; then
+			kdialog --error "Unable to install, this installer is incompatible with lliurex-smart from unofficial smart installer!\nPlease remove lliurex-smart from unofficial installer first"
+			ret=1
+		fi
+		if ["${statusC}" == 'install ok installed' ]; then
+			kdialog --error "Unable to install, this installer is incompatible with nwfermi-module from unofficial smart installer!\nPlease remove nwfermi-module from unofficial installer first"
+			ret=1
+		fi
+		exit $ret
 	;;
 	installPackage)
 		echo "installPackage..."
@@ -34,6 +46,17 @@ case $ACTION in
 	;;
 	remove)
 		echo "remove..."
+		pkgs="fwupdatesmart smart-languagesetup smart-gallerysetup smart-notebook smart-product-drivers smart-activation smart-common smart-hwr nwfermi-module-host"
+		uninstall=""
+		for pkg in $pkgs; do 
+			status=$(dpkg-query -W -f'${Status}' ${pkg} 2>/dev/null)
+			if [ "${status}" == "install ok installed" ];then
+				uninstall="$uninstall $pkg"
+			fi
+		done
+		if [ -n "$uninstall" ];then
+			apt-get remove -y $uninstall
+		fi
 	;;
 esac
 exit 0
