@@ -10,7 +10,7 @@ if [ "x$ACTION" != "xgetStatus" ];then
 fi
 case $ACTION in
 	getStatus)
-		status=$(dpkg -W -f '${Status}' "$PACKAGE_LIST")
+		status=$(dpkg-query -W -f '${Status}' "$PACKAGE_LIST")
 		if [ "$status" == "install ok installed" ];then
 			echo 0
 		else
