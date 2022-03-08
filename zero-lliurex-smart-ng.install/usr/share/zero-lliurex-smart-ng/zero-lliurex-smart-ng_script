@@ -20,6 +20,10 @@ case $ACTION in
 	;;
 	preInstall)
 		echo "preInstall..."
+		kdialog --error "Preinstall"
+		#status=$(egrep -A1 '"zero-lliurex-smart"' /var/lib/n4d/variables-dir/ZEROCENTER|grep state|sed -nr 's/.*"state": ([^,]+),/\1/p')
+		#status=$(dpkg-query -W -f '${Status}' lliurex-smart 2>/dev/null)
+
 		exit 1
 	;;
 	installPackage)
