@@ -10,12 +10,13 @@ if [ "x$ACTION" != "xgetStatus" ];then
 fi
 case $ACTION in
 	getStatus)
-		status=$(dpkg-query -W -f '${Status}' "$PACKAGE_LIST")
-		if [ "$status" == "install ok installed" ];then
-			echo 0
-		else
-			echo 1
-		fi
+		# status=$(dpkg-query -W -f '${Status}' "$PACKAGE_LIST" 2>/dev/null)
+		# if [ "$status" == "install ok installed" ];then
+		# 	echo 0
+		# else
+		# 	echo 1
+		# fi
+		echo "Not found"
 	;;
 	preInstall)
 		echo "preInstall..."

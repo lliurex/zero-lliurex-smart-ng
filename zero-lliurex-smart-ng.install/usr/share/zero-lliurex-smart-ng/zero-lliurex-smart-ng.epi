@@ -1,5 +1,5 @@
 {
-	"type":"file",
+	"type":"apt",
 	"pkg_list": [{"name":"smart-notebook","key_store":"smart-notebook"},{"name":"smart-product-drivers","key-store":"smart-product-drivers"}], 
 	"script": {"name":"/usr/share/zero-lliurex-smart-ng/zero-lliurex-smart-ng_script","download":false, "remove": true, "getStatus": true, "installPackage": true, "preInstall": true, "postInstall":false},
 	"depends": "",
