@@ -1,14 +1,14 @@
-Source: zero-lliurex-smart
+Source: zero-lliurex-smart-ng
 Section: x11
 Priority: optional
-Maintainer: Equipo LliureX <lliurex@gva.es>
+Maintainer: M.Angel Juan <m.angel.juan@gmail.com>
 Build-Depends: cdbs, debhelper (>= 10),zero-dev, llxsrchelper,inkscape (>= 0.47)
 Standards-Version: 4.1.2
 
-Package: zero-lliurex-smart
+Package: zero-lliurex-smart-ng
 Architecture: any
 Section: x11
-Depends: zero-center,epi-gtk,zero-lliurex-docker
-Description: Smart drivers installer
-  Zero-center helper, It downloads and installs lliurex-smart package
+Depends: zero-center,epi-gtk
+Description: Official Smart drivers installer
+  Zero-center helper, It downloads and installs official Smart packages
  
