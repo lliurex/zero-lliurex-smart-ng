@@ -40,6 +40,10 @@ case $ACTION in
 		codename=$(lsb_release -sc)
 		if [ "${codename}" == "bionic" ];then
 			add-apt-repository -y -u ppa:m-angel-juan/nbdeps
+			status=$(dpkg-query -W -f'${Status}' fakelib-notebook 2>/dev/null)
+			if [ "${status}" != "install ok installed" ];then
+				apt-get install -y fakelib-notebook
+			fi
 		fi
 		exit $ret
 	;;
@@ -65,6 +69,10 @@ case $ACTION in
 		codename=$(lsb_release -sc)
 		if [ "${codename}" == "bionic" ];then
 			add-apt-repository -y -u -r ppa:m-angel-juan/nbdeps
+			status=$(dpkg-query -W -f'${Status}' fakelib-notebook 2>/dev/null)
+			if [ "${status}" == "install ok installed" ];then
+				apt-get remove -y fakelib-notebook
+			fi
 		fi
 	;;
 esac
