@@ -1,9 +1,9 @@
 Format-Specification: http://wiki.debian.org/Proposals/CopyrightFormat?action=recall&rev=143
-Upstream-Name: zero-lliurex-smart
+Upstream-Name: zero-lliurex-smart-ng
 Upstream-Source: http://lliurex.net
 
 Files: *
-Copyright: Copyright 2018 Juan Ramon Pelegrina <juapesai@hotmail.com>
+Copyright: Copyright 2022 M.Angel Juan <m.angel.juan@gmail.com>
 License: GPL-3+
  
 License: GPL-3+
