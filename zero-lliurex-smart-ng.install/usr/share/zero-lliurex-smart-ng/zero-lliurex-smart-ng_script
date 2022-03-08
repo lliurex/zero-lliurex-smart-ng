@@ -36,6 +36,11 @@ case $ACTION in
 			kdialog --error "Unable to install, this installer is incompatible with nwfermi-module from unofficial smart installer!\nPlease remove nwfermi-module from unofficial installer first"
 			ret=1
 		fi
+		#bionic need additional repository
+		codename=$(lsb_release -sc)
+		if [ "${codename}" == "bionic" ];then
+			add-apt-repository -y -u ppa:m-angel-juan/nbdeps
+		fi
 		exit $ret
 	;;
 	installPackage)
@@ -56,6 +61,10 @@ case $ACTION in
 		done
 		if [ -n "$uninstall" ];then
 			apt-get remove -y $uninstall
+		fi
+		codename=$(lsb_release -sc)
+		if [ "${codename}" == "bionic" ];then
+			add-apt-repository -y -u -r ppa:m-angel-juan/nbdeps
 		fi
 	;;
 esac
