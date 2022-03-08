@@ -1,0 +1,16 @@
+Name=zero-lliurex-smart-ng
+Name[es]=Instalación de drivers oficiales de Smart
+Name[en]=Installing the Official Smart drivers
+Name[qcv]=Instal·lació dels drivers oficials de Smart
+Name[ca_ES]=Instal·lació del drivers oficials de Smart
+Comment=Smart Board drivers installation wizard
+Comment[es]=Asistente de instalación de los drivers oficiales de la pizarra Smart
+Comment[qcv]=Auxiliar d'instal·lació dels drivers oficials de la pisarra Smart
+Comment[ca_ES]=Auxiliar d'instal·lació dels drivers oficials de la pisarra Smart
+Icon=zero-lliurex-smart-ng
+Groups=admin;admins;teachers;sudo
+Category=Support
+ScriptPath=zero-lliurex-smart-ng.zmd
+Using=pkexec
+Service=True
+Modal=True
