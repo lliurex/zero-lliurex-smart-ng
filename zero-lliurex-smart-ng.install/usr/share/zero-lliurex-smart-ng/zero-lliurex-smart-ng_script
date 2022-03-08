@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ACTION="$1"
+shift
+PACKAGE_LIST="$@"
+
+# Epic-gtk bug !!! Doesn't support echoes out of predefined sections
+if [ "x$ACTION" != "xgetStatus" ];then
+	echo "ACTION=$ACTION PKG_LIST=$PACKAGE_LIST"
+fi
+case $ACTION in
+	getStatus)
+		status=$(dpkg -W -f '${Status}' "$PACKAGE_LIST")
+		if [ "$status" == "install ok installed" ];then
+			echo 0
+		else
+			echo 1
+		fi
+	;;
+	preInstall)
+		echo "preInstall..."
+		exit 1
+	;;
+	installPackage)
+		echo "installPackage..."
+	;;
+	postInstall)
+		echo "postInstall..."
+	;;
+	remove)
+		echo "remove..."
+	;;
+esac
+exit 0
+
