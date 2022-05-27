@@ -3,6 +3,12 @@
 ACTION="$1"
 shift
 PACKAGE_LIST="$@"
+export TEXTDOMAIN="zero-lliurex-smart-ng"
+str1=$(gettext "Unable to install, this installer is incompatible with")
+str2=$(gettext "Please remove all packages from unofficial installer first")
+stra=$(gettext "unofficial smart installer!")
+strb=$(gettext "lliurex-smart from unofficial smart installer!")
+strc=$(gettext "nwfermi-module from unofficial smart installer!")
 
 # Epic-gtk bug !!! Doesn't support echoes out of predefined sections
 if [ "x$ACTION" != "xgetStatus" ];then
@@ -25,15 +31,15 @@ case $ACTION in
 		statusC=$(dpkg-query -W -f '${Status}' nwfermi-module 2>/dev/null)
 		ret=0
 		if [ "${statusA}" == "1" ]; then
-			kdialog --error "Unable to install, this installer is incompatible with unofficial smart installer!\nPlease remove all packages from unofficial installer first"
+			kdialog --error "${str1} ${stra}\n${str2}"
 			ret=1
 		fi
-		if [ "${statusB}" == 'install ok installed' ]; then
-			kdialog --error "Unable to install, this installer is incompatible with lliurex-smart from unofficial smart installer!\nPlease remove lliurex-smart from unofficial installer first"
+		if [ $ret -eq 0 -a "${statusB}" == 'install ok installed' ]; then
+			kdialog --error "${str1} ${strb}\n${str2}"
 			ret=1
 		fi
-		if [ "${statusC}" == 'install ok installed' ]; then
-			kdialog --error "Unable to install, this installer is incompatible with nwfermi-module from unofficial smart installer!\nPlease remove nwfermi-module from unofficial installer first"
+		if [ $ret -eq 0 -a "${statusC}" == 'install ok installed' ]; then
+			kdialog --error "${str1} ${strc}\n${str2}"
 			ret=1
 		fi
 		#bionic need additional repository
@@ -57,7 +63,7 @@ case $ACTION in
 		echo "remove..."
 		pkgs="fwupdatesmart smart-languagesetup smart-gallerysetup smart-notebook smart-product-drivers smart-activation smart-common smart-hwr nwfermi-module-host"
 		uninstall=""
-		for pkg in $pkgs; do 
+		for pkg in $pkgs; do
 			status=$(dpkg-query -W -f'${Status}' ${pkg} 2>/dev/null)
 			if [ "${status}" == "install ok installed" ];then
 				uninstall="$uninstall $pkg"
