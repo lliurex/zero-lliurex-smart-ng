@@ -1,3 +1,10 @@
+zero-lliurex-smart-ng (0.1.1) bionic; urgency=medium
+
+  * Add translations
+  * Fix checking zero-center variables
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Fri, 27 May 2022 12:03:39 +0200
+
 zero-lliurex-smart-ng (0.1) bionic; urgency=medium
 
   * Initial release
