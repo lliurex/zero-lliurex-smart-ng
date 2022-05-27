@@ -1,3 +1,9 @@
+zero-lliurex-smart-ng (0.1.1) focal; urgency=medium
+
+  * Fix json check
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Fri, 27 May 2022 11:50:30 +0200
+
 zero-lliurex-smart-ng (0.1) focal; urgency=medium
 
   * Initial release
