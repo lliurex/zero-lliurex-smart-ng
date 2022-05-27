@@ -9,7 +9,11 @@ str2=$(gettext "Please remove all packages from unofficial installer first")
 stra=$(gettext "unofficial smart installer!")
 strb=$(gettext "lliurex-smart from unofficial smart installer!")
 strc=$(gettext "nwfermi-module from unofficial smart installer!")
-
+codename=$(lsb_release -sc)
+vardir="/var/lib/n4d/variables"
+if [ "x$codename" = "xbionic" ]; then
+	vardir="${vardir}-dir"
+fi
 # Epic-gtk bug !!! Doesn't support echoes out of predefined sections
 if [ "x$ACTION" != "xgetStatus" ];then
 	echo "ACTION=$ACTION PKG_LIST=$PACKAGE_LIST"
@@ -26,7 +30,7 @@ case $ACTION in
 	;;
 	preInstall)
 		echo "preInstall..."
-		statusA=$(egrep -A1 '"zero-lliurex-smart"' /var/lib/n4d/variables-dir/ZEROCENTER|grep state|sed -nr 's/.*"state": ([^,]+),/\1/p')
+		statusA=$(jq '.ZEROCENTER.value."zero-lliurex-smart".state' ${vardir}/ZEROCENTER)
 		statusB=$(dpkg-query -W -f '${Status}' lliurex-smart 2>/dev/null)
 		statusC=$(dpkg-query -W -f '${Status}' nwfermi-module 2>/dev/null)
 		ret=0
@@ -43,7 +47,6 @@ case $ACTION in
 			ret=1
 		fi
 		#bionic need additional repository
-		codename=$(lsb_release -sc)
 		if [ "${codename}" == "bionic" ];then
 			add-apt-repository -y -u ppa:m-angel-juan/nbdeps
 			status=$(dpkg-query -W -f'${Status}' fakelib-notebook 2>/dev/null)
