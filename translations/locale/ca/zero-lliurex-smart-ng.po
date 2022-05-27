@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-27 10:59+0200\n"
+"PO-Revision-Date: 2022-05-27 11:11+0200\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
+
+#: zero-lliurex-smart-ng_script:7
+msgid "Unable to install, this installer is incompatible with"
+msgstr "Impossible instal·lar, aquest instal·lador és incompatible amb"
+
+#: zero-lliurex-smart-ng_script:8
+msgid "Please remove all packages from unofficial installer first"
+msgstr "Per favor elimine primer tots els paquets de l'instal·lador no-oficial"
+
+#: zero-lliurex-smart-ng_script:9
+msgid "unofficial smart installer!"
+msgstr "instal·lador no-oficial de Smart!"
+
+#: zero-lliurex-smart-ng_script:10
+msgid "lliurex-smart from unofficial smart installer!"
+msgstr "lliurex-smart de l'instal·lador no-oficial de Smart!"
+
+#: zero-lliurex-smart-ng_script:11
+msgid "nwfermi-module from unofficial smart installer!"
+msgstr "nwfermi-module de l'instal·lador no-oficial de Smart!"
