@@ -1,3 +1,9 @@
+zero-lliurex-smart-ng (0.1.2) bionic; urgency=medium
+
+  * Disable package on bionic
+
+ -- M.Angel Juan <m.angel.juan@gmail.com>  Tue, 31 May 2022 12:03:58 +0200
+
 zero-lliurex-smart-ng (0.1.1) bionic; urgency=medium
 
   * Add translations
